@@ -3,7 +3,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 
-//This is test runner file - used in order to run the project
+//Testing GitHub Webhook
 @CucumberOptions(
 		features = "src/test/resources/feature", //Where the english/feature files are
 		glue = "com.sauceDemo.stepdefinitions",

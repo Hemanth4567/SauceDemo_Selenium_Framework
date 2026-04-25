@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.sauceDemo.runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.149 s -- in com.sauceDemo.runner.TestRunner
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.651 s -- in com.sauceDemo.runner.TestRunner
