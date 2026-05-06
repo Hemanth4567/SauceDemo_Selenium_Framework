@@ -1,3 +1,4 @@
-com/sauceDemo/pages/ProductsPage.class
 com/sauceDemo/pages/LoginPage.class
 com/sauceDemo/utils/ConfigReader.class
+com/sauceDemo/pages/ProductsPage.class
+com/sauceDemo/factory/DriverFactory.class

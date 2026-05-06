@@ -1,2 +1,3 @@
+com/sauceDemo/AppHooks/ApplicationHooks.class
 com/sauceDemo/runner/TestRunner.class
 com/sauceDemo/stepdefinitions/LoginSteps.class

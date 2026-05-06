@@ -7,6 +7,8 @@ import com.sauceDemo.utils.ConfigReader;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
+
+//Hooks added
 public class ApplicationHooks {
 
 	private DriverFactory driverFactory;
