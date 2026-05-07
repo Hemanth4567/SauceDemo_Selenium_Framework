@@ -13,6 +13,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<allure.results.directory>target/allure-results</allure.results.directory>
 	</properties>
 
 	<dependencies>
