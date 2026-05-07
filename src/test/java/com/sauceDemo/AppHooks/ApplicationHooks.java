@@ -1,11 +1,15 @@
 package com.sauceDemo.AppHooks;
 
 import java.util.Properties;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import com.sauceDemo.factory.DriverFactory;
 import com.sauceDemo.utils.ConfigReader;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 
 
 //Hooks added
@@ -41,5 +45,22 @@ public class ApplicationHooks {
 		}
 		
 		DriverFactory.tlDriver.remove();
+	}
+	
+	public void tearDown(Scenario scenario)
+	{
+		if(scenario.isFailed())
+		{
+			// 1. Take the screenshot using the thread-safe driver
+			byte[] screenshot = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
+			
+			// 2. Name the screenshot based on the scenario name
+			String screenshotName = scenario.getName().replace(" ", "_");
+			
+			// 3. Attach it to the Cucumber/Allure report
+			scenario.attach(screenshot, "image/png", screenshotName);
+			
+			System.out.println("Screenshot taken for failed scenarios: "+scenario.getName());
+		}
 	}
 }

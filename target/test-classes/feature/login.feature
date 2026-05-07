@@ -11,7 +11,7 @@ Scenario: Successful login with valid credentials
 	
 Scenario: Login should fail with invalid credentials
 	When the user enters username "locked_out_user" and password "wrong_password"
-	Then then user should see the error message
+	Then then user should see the error messag
 	
 Scenario: Add a product to the cart
 	When the user enters username "standard_user" and password "secret_sauce"
