@@ -19,7 +19,7 @@ public class LoginPage {
 	By usernameField = By.id("user-name");
 	By passwordField = By.id("password");
 	By loginButton = By.id("login-button");
-	By header = By.className("title");
+	private By header = By.className("title");
 	By errorMessge = By.cssSelector("h3[data-test = 'error']");
 
 	// 3. Actions: What can we do on this page?

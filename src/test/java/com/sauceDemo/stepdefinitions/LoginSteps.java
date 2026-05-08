@@ -1,5 +1,8 @@
 package com.sauceDemo.stepdefinitions;
 
+import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,6 +13,7 @@ import com.sauceDemo.factory.DriverFactory;
 import com.sauceDemo.pages.LoginPage;
 import com.sauceDemo.pages.ProductsPage;
 import com.sauceDemo.utils.ConfigReader;
+import com.sauceDemo.utils.ExcelReader;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -63,6 +67,22 @@ public class LoginSteps {
 	public void varifyCart(String expectedCount)
 	{
 		Assert.assertEquals(products.getCartCount(), expectedCount);
+	}
+	
+	@When("user fills the form from given sheetname {string} and rownumber {int}")
+	public void fillFormFromExcel(String sheetName, Integer rowNumber) throws Exception
+	{
+		ExcelReader reader = new ExcelReader();
+		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/TestData.xlsx";
+		List<Map<String, String>> testData = reader.getData(path, sheetName);
+		
+		String user = testData.get(rowNumber).get("username");
+		String pass = testData.get(rowNumber).get("password");
+		
+		System.out.println("Excel user:"+user);
+		System.out.println("Excel pass"+pass);
+		
+		login.enterCredentials(user, pass);
 	}
 
 }

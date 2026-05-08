@@ -1,17 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.sauceDemo.runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.429 s <<< FAILURE! -- in com.sauceDemo.runner.TestRunner
-com.sauceDemo.runner.TestRunner.runScenario["Login should fail with invalid credentials", "Login Functionality"](3) -- Time elapsed: 3.971 s <<< FAILURE!
-io.cucumber.testng.UndefinedStepException: 
-The step 'then user should see the error messag' is undefined.
-You can implement this step using the snippet(s) below:
-
-@Then("then user should see the error messag")
-public void then_user_should_see_the_error_messag() {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
-}
-
-	at ✽.then user should see the error messag(file:///Users/hemanthkumar/eclipse-workspace/Selenium_FrameWork/Demo/src/test/resources/feature/login.feature:14)
-
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.258 s -- in com.sauceDemo.runner.TestRunner
