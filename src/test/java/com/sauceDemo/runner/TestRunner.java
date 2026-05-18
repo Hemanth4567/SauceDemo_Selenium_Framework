@@ -1,6 +1,7 @@
 package com.sauceDemo.runner;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
@@ -21,10 +22,12 @@ public class TestRunner extends AbstractTestNGCucumberTests{
 
 	@BeforeClass
 	@Parameters("browser")
-	public void defineBrowser(String browser)
+	public void defineBrowser(@Optional("chrome")String browser)
 	{
 		TestRunner.browserName.set(browser);
 		System.out.println("TestNG initialized thread for: " + browser);
+		// Your existing driver initialization logic...
+		System.out.println("Browser intialization via Jenkins/TestNG: "+browser);
 	}
 
 	@Override
