@@ -4,9 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 
 import com.sauceDemo.factory.DriverFactory;
@@ -23,7 +20,7 @@ import io.cucumber.java.en.When;
 public class LoginSteps {
 
 	WebDriver driver;
-	private LoginPage login;	
+	private LoginPage login;
 	ProductsPage products;
 	//ConfigReader config = new ConfigReader();
 
@@ -32,8 +29,15 @@ public class LoginSteps {
 	{
 		ConfigReader config = new ConfigReader();
 		java.util.Properties prop = config.init_prop();
-		
-		DriverFactory.getDriver().get(prop.getProperty("url"));
+		String url = prop.getProperty("url");
+
+		// Explicitly check for null to avoid Safari's weird "YES" redirect
+		if(url == null || url.isEmpty())
+		{
+			url = "https://www.saucedemo.com/";
+		}
+
+		DriverFactory.getDriver().get("https://www.saucedemo.com/");
 		login = new LoginPage(DriverFactory.getDriver());
 	}
 
@@ -46,6 +50,13 @@ public class LoginSteps {
 	@Then("the user should be redirected to the {string} header")
 	public void verifyHeader(String expectedTitle)
 	{
+		
+		try {
+			Thread.sleep(1500);
+		}catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
 		Assert.assertEquals(login.getHeaderText(), expectedTitle);
 	}
 
@@ -68,20 +79,20 @@ public class LoginSteps {
 	{
 		Assert.assertEquals(products.getCartCount(), expectedCount);
 	}
-	
+
 	@When("user fills the form from given sheetname {string} and rownumber {int}")
 	public void fillFormFromExcel(String sheetName, Integer rowNumber) throws Exception
 	{
 		ExcelReader reader = new ExcelReader();
 		String path = System.getProperty("user.dir") + "/src/test/resources/testdata/TestData.xlsx";
 		List<Map<String, String>> testData = reader.getData(path, sheetName);
-		
+
 		String user = testData.get(rowNumber).get("username");
 		String pass = testData.get(rowNumber).get("password");
-		
+
 		System.out.println("Excel user:"+user);
 		System.out.println("Excel pass"+pass);
-		
+
 		login.enterCredentials(user, pass);
 	}
 

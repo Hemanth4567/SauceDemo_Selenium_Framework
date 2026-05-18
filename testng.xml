@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="tests" thread-count="3">
-	<test name="Cucumber Tests">
+<suite name="Cross Browser Suite" parallel="none" thread-count="3">
+	<test name="ChromeTests">
+		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="runner.TestRunner" />
+			<class name="com.sauceDemo.runner.TestRunner" />
 		</classes>
 	</test> <!--
 	Test -->

@@ -5,8 +5,11 @@ import java.util.Properties;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+
 import com.sauceDemo.factory.DriverFactory;
+import com.sauceDemo.runner.TestRunner;
 import com.sauceDemo.utils.ConfigReader;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -19,22 +22,32 @@ public class ApplicationHooks {
 	private WebDriver driver;
 	private ConfigReader configReader;
 	Properties prop;
-	
+
 	@Before(order = 0)
 	public void getProperty()
 	{
 		configReader = new ConfigReader();
 		prop = configReader.init_prop();
 	}
-	
+
 	@Before(order = 1)
 	public void launchBrowser()
 	{
-		String browserName = prop.getProperty("browser");
+		System.out.println("DEBUG: ThreadLocal Browser is: " + TestRunner.browserName.get());
+		// Pull the browser name assigned to THIS specific thread
+		String browser = TestRunner.browserName.get();
+
+		// Safety check: if you run without TestNG, fall back to config file
+		if(browser == null)
+		{
+			browser = prop.getProperty("browser");
+		}
+
+
 		driverFactory = new DriverFactory();
-		driver = driverFactory.init_driver(browserName);
+		driver = driverFactory.init_driver(browser);
 	}
-	
+
 	@After(order = 0)
 	public void quitBrowser()
 	{
@@ -43,23 +56,24 @@ public class ApplicationHooks {
 			System.out.println("Closing browser for thread: "+Thread.currentThread().getId());
 			DriverFactory.getDriver().quit();
 		}
-		
+
 		DriverFactory.tlDriver.remove();
 	}
-	
+
+	@After(order = 1)
 	public void tearDown(Scenario scenario)
 	{
 		if(scenario.isFailed())
 		{
 			// 1. Take the screenshot using the thread-safe driver
 			byte[] screenshot = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
-			
+
 			// 2. Name the screenshot based on the scenario name
 			String screenshotName = scenario.getName().replace(" ", "_");
-			
+
 			// 3. Attach it to the Cucumber/Allure report
 			scenario.attach(screenshot, "image/png", screenshotName);
-			
+
 			System.out.println("Screenshot taken for failed scenarios: "+scenario.getName());
 		}
 	}

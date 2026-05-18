@@ -1,43 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-08T17:25:08 IST" name="Default suite" finished-at="2026-05-08T17:25:12 IST" duration-ms="3902">
+  <suite started-at="2026-05-18T10:26:33 IST" name="Cross Browser Suite" finished-at="2026-05-18T10:26:48 IST" duration-ms="15809">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@609db43b]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@5f683daf]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-05-08T17:25:08 IST" name="Default test" finished-at="2026-05-08T17:25:12 IST" duration-ms="3902">
+    <test started-at="2026-05-18T10:26:33 IST" name="ChromeTests" finished-at="2026-05-18T10:26:48 IST" duration-ms="15809">
       <class name="com.sauceDemo.runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.sauceDemo.runner.TestRunner@609db43b]" started-at="2026-05-08T17:25:08 IST" name="setUpClass" finished-at="2026-05-08T17:25:08 IST" duration-ms="172" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.sauceDemo.runner.TestRunner@5f683daf]" started-at="2026-05-18T10:26:33 IST" name="setUpClass" finished-at="2026-05-18T10:26:33 IST" duration-ms="180" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@14fc5d40]]>
+                <![CDATA[org.testng.TestRunner@1dae9e61]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@609db43b]" started-at="2026-05-08T17:25:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-08T17:25:12 IST" duration-ms="3602" status="PASS">
+        <test-method is-config="true" signature="defineBrowser(java.lang.String)[pri:0, instance:com.sauceDemo.runner.TestRunner@5f683daf]" started-at="2026-05-18T10:26:33 IST" name="defineBrowser" finished-at="2026-05-18T10:26:33 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Failed Login from Excel"]]>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- defineBrowser -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@5f683daf]" started-at="2026-05-18T10:26:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T10:26:37 IST" duration-ms="4177" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Fetch user data from API and perform UI Login"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Login Functionality"]]>
+                <![CDATA["Hybrid API-UI Chaining"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@609db43b]" started-at="2026-05-08T17:25:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-08T17:25:12 IST" duration-ms="3285" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@5f683daf]" started-at="2026-05-18T10:26:37 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T10:26:40 IST" duration-ms="3318" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -53,23 +64,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@609db43b]" started-at="2026-05-08T17:25:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-08T17:25:12 IST" duration-ms="3618" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Successful Login from Excel"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Login Functionality"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@609db43b]" started-at="2026-05-08T17:25:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-08T17:25:12 IST" duration-ms="3162" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@5f683daf]" started-at="2026-05-18T10:26:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T10:26:42 IST" duration-ms="1547" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -85,7 +80,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@609db43b]" started-at="2026-05-08T17:25:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-08T17:25:12 IST" duration-ms="3328" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@5f683daf]" started-at="2026-05-18T10:26:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T10:26:43 IST" duration-ms="1597" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -101,11 +96,43 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.sauceDemo.runner.TestRunner@609db43b]" started-at="2026-05-08T17:25:12 IST" name="tearDownClass" finished-at="2026-05-08T17:25:12 IST" duration-ms="100" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@5f683daf]" started-at="2026-05-18T10:26:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T10:26:47 IST" duration-ms="3254" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Successful Login from Excel"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.sauceDemo.runner.TestRunner@5f683daf]" started-at="2026-05-18T10:26:47 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-18T10:26:48 IST" duration-ms="1632" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Failed Login from Excel"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Login Functionality"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.sauceDemo.runner.TestRunner@5f683daf]" started-at="2026-05-18T10:26:48 IST" name="tearDownClass" finished-at="2026-05-18T10:26:48 IST" duration-ms="90" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.sauceDemo.runner.TestRunner -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- ChromeTests -->
+  </suite> <!-- Cross Browser Suite -->
 </testng-results>

@@ -1,5 +1,7 @@
 package com.sauceDemo.runner;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -14,9 +16,19 @@ import io.cucumber.testng.CucumberOptions;
 		)
 
 public class TestRunner extends AbstractTestNGCucumberTests{
-	
+
+	public static InheritableThreadLocal<String> browserName = new InheritableThreadLocal<>();
+
+	@BeforeClass
+	@Parameters("browser")
+	public void defineBrowser(String browser)
+	{
+		TestRunner.browserName.set(browser);
+		System.out.println("TestNG initialized thread for: " + browser);
+	}
+
 	@Override
-	@DataProvider(parallel = true)
+	@DataProvider(parallel = false)
 	public Object[][]scenarios()
 	{
 		return super.scenarios();
